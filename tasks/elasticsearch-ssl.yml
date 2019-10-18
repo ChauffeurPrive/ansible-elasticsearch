@@ -1,0 +1,19 @@
+---
+
+- name: Create the folder containing the SSL certificates
+  file:
+    path: "{{ es_ssl_directory }}"
+    state: directory
+    owner: "elasticsearch"
+    group: "elasticsearch"
+    mode: 0744
+
+- name: Copy ssl files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ es_ssl_directory }}"
+    owner: "elasticsearch"
+    group: "elasticsearch"
+    mode: 0644
+  with_fileglob:
+    - "{{ es_ssl_directory_fileglob | default('') }}"

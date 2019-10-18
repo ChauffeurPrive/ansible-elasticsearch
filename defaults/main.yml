@@ -41,3 +41,7 @@ es_debian_startup_timeout: 10
 
 # JVM custom parameters
 es_jvm_custom_parameters: ''
+
+# SSL directories
+es_ssl_directory: ''
+es_ssl_directory_fileglob: ''
